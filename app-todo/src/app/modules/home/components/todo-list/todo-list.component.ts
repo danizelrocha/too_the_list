@@ -9,15 +9,17 @@ import { TaskList } from './../../model/task-list';
 })
 export class TodoListComponent implements OnInit {
 
-  public taskList: Array<TaskList> = [
-    { task: "Minha nova Tassk", checked: true },
-    { task: "Minha nova Tassk 2", checked: false },
-  ];
+  public taskList: Array<TaskList> = [];
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  public setEmitTasklist(event:string){
+    this.taskList.push({task:event, checked: false});
+  }
+
   public deleteItemTaskList(event: number){
     this.taskList.splice(event, 1);
   }
